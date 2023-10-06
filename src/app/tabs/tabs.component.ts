@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { StarWarsService } from '../star-wars.service';
 
 @Component({
   selector: 'app-tabs',
@@ -7,22 +6,10 @@ import { StarWarsService } from '../star-wars.service';
   styleUrls: ['./tabs.component.css'],
 })
 export class TabsComponent {
-  characters:any = [];
-  chosenList = 'all';
-  swService: StarWarsService;
 
 
-  constructor(swService: StarWarsService) {
-    this.swService = swService;
-  }
-  onChoose(side:any) {
-    this.chosenList = side;
-  }
-  
-  getCharacters() {
-    this.characters = this.swService.getCharacters(this.chosenList);
-    return this.characters;
-  }
+  constructor() {
 
+  }
   
 }
