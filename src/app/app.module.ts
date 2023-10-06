@@ -7,20 +7,23 @@ import { FormsModule } from '@angular/forms';
 import { TabsComponent } from './tabs/tabs.component';
 import { ItemsComponent } from './items/items.component';
 import { ListComponent } from './list/list.component';
+import { StarWarsService } from './star-wars.service';
+import { CreateCharacterComponent } from './create-character/create-character.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TabsComponent,
     ItemsComponent,
-    ListComponent   
+    ListComponent,
+    CreateCharacterComponent   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [StarWarsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { StarWarsService } from '../star-wars.service';
 
 @Component({
   selector: 'app-items',
@@ -7,11 +8,16 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ItemsComponent {
   @Input() character: any;
-  @Output() sideAssinged = new EventEmitter<{name:string, side:string }>();
+  swService: StarWarsService;
+
+  constructor(swService: StarWarsService) {
+    this.swService = swService;
+  }
 
 
   onAssign(side: string) {
     //this.character.side =side;
-    this.sideAssinged.emit({name: this.character.name, side:side})
+    //this.sideAssinged.emit({name: this.character.name, side:side})
+    this.swService.onSideChosen({name: this.character.name, side:side})
   }
 }
